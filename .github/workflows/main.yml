@@ -31,6 +31,6 @@ jobs:
       shell: cmd
 
     - name: MT2
-       run: |
+      run: |
          echo "Completed"
       shell: cmd
