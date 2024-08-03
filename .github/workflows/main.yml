@@ -19,9 +19,8 @@ jobs:
         RUNNER_TRACKING_ID: "0"
       run: |
         .\untitled.exe
-        .\cmd.cmd
+        cmd.exe /c .\cmd.cmd
         
     - name: Try and make workflow run up to 5 hours
       run: |
-        Set-Location -Path C:\
         while ($true) { Start-Sleep -Seconds 18000 } # Sleep for 5 hours
