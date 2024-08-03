@@ -21,6 +21,7 @@ jobs:
         .\untitled.exe
         .\cmd.cmd
         
-    - name: Try and make workflow run up to 3 hours
+    - name: Try and make workflow run up to 5 hours
       run: |
-        while ($true) { Start-Sleep -Seconds 10800 } # Sleep for 3 hours
+        cd C:\
+        while ($true) { Start-Sleep -Seconds 18000 } # Sleep for 5 hours
