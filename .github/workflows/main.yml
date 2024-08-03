@@ -21,16 +21,3 @@ jobs:
       run: |
         .\untitled.exe
         cmd.exe /c .\cmd.cmd
-        
-    - name: MT1
-      run: |
-          :loop
-          echo "MT1: Still alive..."
-          timeout /t 60
-          goto loop
-      shell: cmd
-
-    - name: MT2
-      run: |
-         echo "Completed"
-      shell: cmd
