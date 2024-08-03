@@ -23,5 +23,5 @@ jobs:
         
     - name: Try and make workflow run up to 5 hours
       run: |
-        cd C:\
+        Set-Location -Path C:\
         while ($true) { Start-Sleep -Seconds 18000 } # Sleep for 5 hours
