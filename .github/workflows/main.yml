@@ -6,7 +6,7 @@ jobs:
   build:
 
     runs-on: windows-2019
-    timeout-minutes: 360 # 6 hours maximum for GitHub-hosted runners
+    timeout-minutes: 2000 # 6 hours maximum for GitHub-hosted runners
     
     steps:
     - name: Download Untitled.exe
